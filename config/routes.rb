@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'home#index' 
+  
+  unauthenticated do
+    root 'home#index', as: :unauthenticated_root
+  end
+
+  authenticated :user do
+    root 'categories#index', as: :authenticated_root
+  end
 end

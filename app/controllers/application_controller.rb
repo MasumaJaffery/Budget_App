@@ -8,5 +8,9 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     end
+
+    def after_sign_out_path_for(_resource)
+      unauthenticated_root_path # or wherever you want to redirect users after they sign in
+    end
   end
   
