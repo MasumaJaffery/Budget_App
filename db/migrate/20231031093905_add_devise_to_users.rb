@@ -1,7 +1,11 @@
-class CreateUsers < ActiveRecord::Migration[7.0]
+# frozen_string_literal: true
+
+class AddDeviseToUsers < ActiveRecord::Migration[7.0]
+ # frozen_string_literal: true
   def change
     create_table :users do |t|
       ## Database authenticatable
+      t.string :name, null: false
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
@@ -19,7 +23,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       # t.string   :current_sign_in_ip
       # t.string   :last_sign_in_ip
 
-     ## Confirmable
+      ## Confirmable
       t.string   :confirmation_token
       t.datetime :confirmed_at
       t.datetime :confirmation_sent_at
