@@ -1,0 +1,34 @@
+     <nav class="bg-blue p-4 flex justify-between items-center max-w-8xl mx-auto">
+      <div class="mr-4 text-white text-2xl font-bold flex items-center">
+       <a href="/" class="mr-4 text-white text-2xl font-bold flex items-center">
+    <span class="arrow-left text-white text-5xl font-bold">&#8592;</span>
+  </a>
+        </div>
+        <div class="mr-4 text-white text-2xl font-bold flex items-center">
+        <span class="ml-2">Login</span>
+      </div>
+    <div class="flex items-center">
+      <ul class="flex space-x-4">
+        <%= form_tag(destroy_user_session_path, method: :delete) do %>
+          <li class="mr-3">
+            <%= submit_tag 'Log Out', class: "text-white block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 cursor-pointer" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div style="margin: 2rem;">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.email_field :email, placeholder: "Enter your email", autofocus: true, autocomplete: "email", class: "w-full rounded-lg px-3 py-2 border" %>
+        <%= f.password_field :password, placeholder: "Enter your password", autocomplete: "new-password", class: "w-full rounded-lg px-3 py-2 border" %>
+      <div class="flex justify-center items-center">
+        <%= f.submit "Log in", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="flex justify-center items-center flex-col">
+    <%= render "devise/shared/links" %>
+  </div>
+
