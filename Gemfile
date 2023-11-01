@@ -77,11 +77,9 @@ group :test do
   gem 'shoulda-matchers', '~> 4.0'
 end
 
-
-gem 'sassc-rails'
-gem 'popper_js', '~> 2.11.8'
-gem 'devise'
-gem 'tailwindcss-rails', '~> 2.0'
-gem 'faker'
 gem 'bootstrap', '~> 5.3.2'
-
+gem 'devise'
+gem 'faker'
+gem 'popper_js', '~> 2.11.8'
+gem 'sassc-rails'
+gem 'tailwindcss-rails', '~> 2.0'
