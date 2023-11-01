@@ -11,21 +11,6 @@
     <%= javascript_importmap_tags %>
   </head>
   <body class="bg-grey_home">
-    <nav class="bg-blue p-4">
-  <div class="max-w-7xl mx-auto flex justify-between items-center">
-    <div class="flex items-center">
-      <a href="#" class="text-white text-2xl font-bold">Budgetary</a>
-    </div>
-    <div class="hidden md:block">
-  <ul class="flex space-x-4">
-     <%= form_tag(destroy_user_session_path, method: :delete) do %>
-          <%= submit_tag 'Log Out', class: "-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 cursor-pointer" %>
-        <% end %>
-  </ul>
-</div>
-
-  </div>
-</nav>
 
 <main>
       <%= yield %>
