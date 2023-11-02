@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+</head>
+<body>
+ <nav class="bg-blue p-4 flex justify-between items-center max-w-8xl mx-auto">
+      <div class="mr-4 text-white text-2xl font-bold flex items-center">
+       <a href="/" class="mr-4 text-white text-2xl font-bold flex items-center">
+    <span class="arrow-left text-white text-5xl font-bold">&#8592;</span>
+  </a>
+        </div>
+        <div class="mr-4 text-white text-2xl font-bold flex items-center">
+        <span class="ml-2">Categories</span>
+      </div>
+    <div class="flex items-center">
+      <ul class="flex space-x-4">
+        <%= form_tag(destroy_user_session_path, method: :delete) do %>
+          <li class="mr-3">
+            <%= submit_tag 'Log Out', class: "text-white block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 cursor-pointer" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+<main>
+<div class="bg-white rounded-lg shadow-md p-4 p" style="margin: 1rem">
+<div class ="flex flex-row justify-between items-center">
+  <% if @category.icon.attached? %>
+      <div class="flex items-center">
+        <%= image_tag @category.icon, class: 'w-[50%] h-16 md:h-24 lg:h-32 xl:h-40' %>
+    <% end %>
+      <h2 class="text-lg font-bold text-center mt-4"><%= @category.title %></h2>
+    </div>
+
+    <div>
+      <p>$</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</main>
+</body>
+</html>
+ 
+ 
+   
