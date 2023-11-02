@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categories</title>
-     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <!-- Your head content -->
 </head>
 <body>
- <nav class="bg-blue p-4 flex justify-between items-center max-w-8xl mx-auto">
+    <nav class="bg-blue p-4 flex justify-between items-center max-w-8xl mx-auto">
       <div class="mr-4 text-white text-2xl font-bold flex items-center">
        <a href="/" class="mr-4 text-white text-2xl font-bold flex items-center">
     <span class="arrow-left text-white text-5xl font-bold">&#8592;</span>
@@ -31,8 +24,29 @@
     </div>
   </div>
 </nav>
+    <main>
+        <div class="p-4">
+            <ul class="flex flex-col list-none">
+                <% @categories.each do |category| %>
+                    <li class="bg-white rounded-lg shadow-md p-4 text-center flex items-center" style="margin: 1rem">
+                        <div class="flex w-full items-center justify-between">
+                            <a href="<%= category_path(category) %>" class="flex items-center">
+                                <div class="flex items-center">
+                                    <% if category.icon.attached? %>
+                                        <%= image_tag category.icon, class: 'w-[50%] h-16 md:h-24 lg:h-32 xl:h-40' %>
+                                    <% end %>
+                                    <h2 class="text-lg font-bold text-center ml-4"><%= category.title %></h2>
+                                </div>
+                            </a>
+                            <div class="flex-end">
+                                <p>$</p>
+                            </div>
+                        </div>
+                    </li>
+                <% end %>                                 
+            </ul>
+        </div>
+        <%= link_to 'Add Category', new_category_path, class: 'block w-full bg-green text-center text-white font-semibold py-2 px-4 rounded-lg' %>
+    </main>
 </body>
 </html>
- 
- 
-   

@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   authenticated :user do
     root 'categories#index', as: :authenticated_root
   end
+  resources :categories
 end
