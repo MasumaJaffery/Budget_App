@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categories</title>
+    <title>Transactions</title>
 </head>
 <body>
  <nav class="bg-blue p-4 flex justify-between items-center max-w-8xl mx-auto">
@@ -13,7 +13,7 @@
   </a>
         </div>
         <div class="mr-4 text-white text-2xl font-bold flex items-center">
-        <span class="ml-2">Categories</span>
+        <span class="ml-2">Transactions</span>
       </div>
     <div class="flex items-center">
       <ul class="flex space-x-4">
@@ -27,23 +27,35 @@
   </div>
 </nav>
 <main>
-<div class="bg-white rounded-lg shadow-md p-4 p" style="margin: 1rem">
-<div class ="flex flex-row justify-between items-center">
-  <% if @category.icon.attached? %>
-      <div class="flex items-center">
-        <%= image_tag @category.icon, class: 'w-[50%] h-16 md:h-24 lg:h-32 xl:h-40' %>
-    <% end %>
-      <h2 class="text-lg font-bold text-center mt-4"><%= @category.title %></h2>
-    </div>
 
+   <% if flash[:success] %>
+    <div id="flash-success" class="flash flash-success flex items-center text-white justify-center bg-green">
+      <%= flash[:success] %>
+    </div>
+  <% end %>
+
+  <div class="bg-white rounded-lg shadow-md p-4 text-center flex items-center flex justify-between mb-2",style="margin: 2rem;">
+  <h2><%= @category.title %></h2>
+  <p>$<%= @total_amount %></p>
+</div>
+
+      <% @transactions.each do |transaction| %>
+  <div class="bg-white rounded-lg shadow-md p-4 text-center flex items-center flex justify-between">
     <div>
-      <p>$</p>
+      <h2 class="font-normal text-text_color pb-6"><%= transaction.name %></h2>
+      <p>
+        <%= transaction.created_at.strftime('%d %b %Y') %>
+      </p>
+    </div>
+    <div>
+       <p class="font-bold text-right">$<%= transaction.amount %></p>
     </div>
   </div>
-</div>
-</div>
-</div>
+<% end %>
 </main>
+<footer>
+<%= link_to 'Add Transaction', new_category_transaction_path(category), class: 'block w-full bg-green text-center text-white font-semibold py-2 px-4 rounded-lg' %>
+</footer>
 </body>
 </html>
  

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categories</title>
+    <title>Transactions</title>
 </head>
 <body>
  <nav class="bg-blue p-4 flex justify-between items-center max-w-8xl mx-auto">
@@ -13,7 +13,7 @@
   </a>
         </div>
         <div class="mr-4 text-white text-2xl font-bold flex items-center">
-        <span class="ml-2">Categories</span>
+        <span class="ml-2">Transactions</span>
       </div>
     <div class="flex items-center">
       <ul class="flex space-x-4">
@@ -26,15 +26,17 @@
     </div>
   </div>
 </nav>
-<main>
 <div style="margin: 2rem;">
-      <%= form_with(model: @category, url: categories_path, method: :post, multipart: true) do |f| %>
-      <div class="field">
-        <%= f.text_field :title, placeholder: "Title", autocomplete: "title", autofocus: true, required: true, class: "f-w w-full rounded-lg px-3 py-2 border" %>
-      </div>
-      <div class="field">
-        <%= f.file_field :icon, placeholder: "Icon", autofocus: true, autocomplete: "icon", class: "f-w w-full rounded-lg px-3 py-2 border" %>
-      </div>
+   <%= form_with(model: [@category, @transaction], url: category_transactions_path(@category.id), method: :post, multipart: true) do |f| %>
+    <div class="field">
+  <%= f.text_field :name, placeholder: "Enter transaction Name", autocomplete: "off", autofocus: true, required: true, class: "w-full rounded-lg px-3 py-2 border" %>
+    </div>
+   <div class="field">
+  <%= f.text_field :amount, placeholder: "Enter transaction Amount", autocomplete: "off", required: true, class: "w-full rounded-lg px-3 py-2 border" %>
+   </div>
+      <div class="w-full">
+       <%= f.collection_select(:category_id, @categories, :id, :title, {prompt: 'Select a Category'}, {class: 'w-full border-none py-4 pr-1 text-text_color text-xl placeholder:text-xl', required: true}) %>
+          </div>
 
       <div class="actions">
       <%= f.submit "Save", class: "w-full bg-blue text-white", style: "padding: 0.60rem" %>
@@ -44,4 +46,6 @@
 </main>
 </body>
 </html>
-
+ 
+ 
+   
