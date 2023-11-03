@@ -22,7 +22,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  # config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || ENV['RENDER'].present?
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
@@ -60,7 +60,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "Budget_App_production"
+  # config.active_job.queue_name_prefix = "budget_app_production"
 
   config.action_mailer.perform_caching = false
 
@@ -91,28 +91,3 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
-config.action_dispatch.default_headers = {
-  'X-Frame-Options' => 'SAMEORIGIN',
-  'X-XSS-Protection' => '1; mode=block',
-  'X-Content-Type-Options' => 'nosniff'
-}
-
-config.assets.compile = false
-
-config.cache_classes = true
-
-config.eager_load = true
-
-config.consider_all_requests_local = false
-
-config.action_controller.perform_caching = true
-
-config.action_dispatch.show_exceptions = false
-
-config.action_controller.allow_forgery_protection = false
-
-config.active_support.deprecation = :notify
-
-config.log_level = :info
-
-config.active_record.dump_schema_after_migration = false
