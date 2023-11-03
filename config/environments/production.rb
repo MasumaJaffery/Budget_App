@@ -91,3 +91,28 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
+config.action_dispatch.default_headers = {
+  'X-Frame-Options' => 'SAMEORIGIN',
+  'X-XSS-Protection' => '1; mode=block',
+  'X-Content-Type-Options' => 'nosniff'
+}
+
+config.assets.compile = false
+
+config.cache_classes = true
+
+config.eager_load = true
+
+config.consider_all_requests_local = false
+
+config.action_controller.perform_caching = true
+
+config.action_dispatch.show_exceptions = false
+
+config.action_controller.allow_forgery_protection = false
+
+config.active_support.deprecation = :notify
+
+config.log_level = :info
+
+config.active_record.dump_schema_after_migration = false
