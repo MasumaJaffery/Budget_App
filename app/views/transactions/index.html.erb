@@ -27,13 +27,11 @@
   </div>
 </nav>
 <main>
-
    <% if flash[:success] %>
     <div id="flash-success" class="flash flash-success flex items-center text-white justify-center bg-green">
       <%= flash[:success] %>
     </div>
   <% end %>
-
   <div class="bg-white rounded-lg shadow-md p-4 text-center flex items-center flex justify-between mb-2",style="margin: 2rem;">
   <h2><%= @category.title %></h2>
   <p>$<%= @total_amount %></p>
