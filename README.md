@@ -135,19 +135,14 @@ bundle exec rspec ./spec
 ### Deployment
 
 The deployment will be available soon !
-
-<!--
-Example:
-You can deploy this project using:
-
-```sh
-
-```
- -->
+https://budgetary.onrender.com/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
+
+## Video
+https://drive.google.com/file/d/1Gogbm0xKRDZtVTIiTcxR4i-5OmVt0IYx/view?usp=drivesdk
 
 ## 👥 Authors <a name="authors"></a>
 
