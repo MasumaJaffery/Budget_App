@@ -21,8 +21,6 @@ gem 'importmap-rails'
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem 'turbo-rails'
 
-gem 'rubocop'
-
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
 
@@ -52,7 +50,19 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'active_model_serializers'
+  gem 'bogus'
+  gem 'cancancan'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rails-controller-testing'
+  gem 'regexp_parser', '2.8.1'
+  gem 'rspec-rails', '~> 5.0'
+  gem 'rswag'
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov', require: false
+  gem 'webdrivers'
 end
 
 group :development do
@@ -69,17 +79,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
-  gem 'factory_bot'
-  gem 'factory_bot_rails'
-  gem 'rails-controller-testing'
-  gem 'rspec-rails'
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers', '~> 4.0'
 end
-
-gem 'bootstrap', '~> 5.3.2'
 gem 'devise'
-gem 'faker'
-gem 'popper_js', '~> 2.11.8'
-gem 'sassc-rails'
-gem 'tailwindcss-rails', '~> 2.0'
+gem 'jquery-rails'
