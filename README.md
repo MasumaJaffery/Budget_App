@@ -135,15 +135,7 @@ bundle exec rspec ./spec
 ### Deployment
 
 The deployment will be available soon !
-
-<!--
-Example:
-You can deploy this project using:
-
-```sh
-
-```
- -->
+https://budgetary.onrender.com/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
