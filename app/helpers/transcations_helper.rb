@@ -1,0 +1,2 @@
+module TranscationsHelper
+end

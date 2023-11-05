@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Your head content -->
+</head>
+<body>
+    <nav class="bg-blue p-4 flex justify-between items-center max-w-8xl mx-auto">
+      <div class="mr-4 text-white text-2xl font-bold flex items-center">
+       <a href="/" class="mr-4 text-white text-2xl font-bold flex items-center">
+    <span class="arrow-left text-white text-5xl font-bold">&#8592;</span>
+  </a>
+        </div>
+        <div class="mr-4 text-white text-2xl font-bold flex items-center">
+        <span class="ml-2">Categories</span>
+      </div>
+    <div class="flex items-center">
+      <ul class="flex space-x-4">
+        <%= form_tag(destroy_user_session_path, method: :delete) do %>
+          <li class="mr-3">
+            <%= submit_tag 'Log Out', class: "text-white block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 cursor-pointer" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+<body>
+    <main>
+        <% if flash[:success] %>
+    <div id="flash-success" class="flash flash-success flex items-center text-white justify-center bg-green">
+      <%= flash[:success] %>
+    </div>
+  <% end %>
+        <div class="p-4">
+            <ul class="flex flex-col list-none">
+                <% @categories.each do |category| %>
+                <a href="<%= category_transactions_path(category) %>">
+                    <li class="bg-white rounded-lg shadow-md p-4 text-center flex items-center" style="margin: 1rem">
+                        <div class="flex w-full items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="flex items-center">
+                                    <% if category.icon.attached? %>
+                                        <%= image_tag category.icon, class: 'w-[50%] h-16 md:h-24 lg:h-32 xl:h-40' %>
+                                    <% end %>
+                                    <div class="flex flex-col items-left">
+                                    <h2 class="text-lg font-bold text-center ml-4"><%= category.title %></h2>
+                                   <%= category.created_at.strftime("%B %d, %Y") %>
+                                   </div>
+                                </div>
+                            </div>
+                            <div class="flex-end">
+                                <h4>$<%= category.total_sum %></h4>
+                            </div>
+                        </div>
+                    </li>
+                    </a>
+                <% end %>                                 
+            </ul>
+        </div>
+        <%= link_to 'Add Category', new_category_path, class: 'block w-full bg-green text-center text-white font-semibold py-2 px-4 rounded-lg' %>
+    </main>
+</body>
+</html>

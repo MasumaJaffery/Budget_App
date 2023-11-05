@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions</title>
+</head>
+<body>
+ <nav class="bg-blue p-4 flex justify-between items-center max-w-8xl mx-auto">
+      <div class="mr-4 text-white text-2xl font-bold flex items-center">
+       <a href="/" class="mr-4 text-white text-2xl font-bold flex items-center">
+    <span class="arrow-left text-white text-5xl font-bold">&#8592;</span>
+  </a>
+        </div>
+        <div class="mr-4 text-white text-2xl font-bold flex items-center">
+        <span class="ml-2">Transactions</span>
+      </div>
+    <div class="flex items-center">
+      <ul class="flex space-x-4">
+        <%= form_tag(destroy_user_session_path, method: :delete) do %>
+          <li class="mr-3">
+            <%= submit_tag 'Log Out', class: "text-white block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 cursor-pointer" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div style="margin: 2rem;">
+   <%= form_with(model: [@category, @transaction], url: category_transactions_path(@category.id), method: :post, multipart: true) do |f| %>
+    <div class="field">
+  <%= f.text_field :name, placeholder: "Enter transaction Name", autocomplete: "off", autofocus: true, required: true, class: "w-full rounded-lg px-3 py-2 border" %>
+    </div>
+   <div class="field">
+  <%= f.text_field :amount, placeholder: "Enter transaction Amount", autocomplete: "off", required: true, class: "w-full rounded-lg px-3 py-2 border" %>
+   </div>
+      <div class="w-full">
+       <%= f.collection_select(:category_id, @categories, :id, :title, {prompt: 'Select a Category'}, {class: 'w-full border-none py-4 pr-1 text-text_color text-xl placeholder:text-xl', required: true}) %>
+          </div>
+
+      <div class="actions">
+      <%= f.submit "Save", class: "w-full bg-blue text-white", style: "padding: 0.60rem" %>
+      </div>
+    <% end %>
+  </div>
+</main>
+</body>
+</html>
+ 
+ 
+   

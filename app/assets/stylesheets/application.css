@@ -1,0 +1,35 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+.heading {
+  font-family: 'Righteous', sans-serif;
+  margin: 2rem;
+  padding: 1rem;
+  font-size: 6.6vw;
+}
+
+.btn {
+  font-weight: 500;
+  font-size: x-large;
+}
+
+.btn-p {
+  padding: 0.6rem 3.6rem;
+}
+
+.btn-p:hover {
+  background-color: #cbd5e1;
+}
+
+@media (max-width: 500px) {
+  .btn {
+    flex-direction: column;
+  }
+
+  .btn-p {
+    width: 100vw;
+    font-size: 5vw;
+  }
+}

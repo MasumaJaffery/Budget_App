@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BudgetApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= javascript_importmap_tags %>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-grey_home">
+    <% flash.each do |key, value| %>
+      <div id="flash-success" class="flash flash-success flex items-center text-white justify-center bg-green">
+        <%= value %>
+      </div>
+    <% end %>
+
+    <main>
+      <%= yield %>
+      <script>
+        document.addEventListener('turbo:load', function() {
+          setTimeout(function() {
+            document.querySelectorAll('.flash').forEach(function(flashElement) {
+              flashElement.style.display = 'none';
+            });
+          }, 3000);
+        });
+      </script>
+    </main>
+  </body>
+</html>
