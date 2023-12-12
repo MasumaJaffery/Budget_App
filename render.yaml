@@ -1,8 +1,7 @@
 databases:
-  - name: Bugdet_App
-    databaseName: db_cp01
+  - name: Budget_App
+    databaseName: DB
     user: db_cp01_user
-
 services:
   - type: web
     name: Budget_App
