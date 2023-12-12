@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Your head content -->
+   <title>BudgetApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= javascript_importmap_tags %>
 </head>
 <body>
     <nav class="bg-blue p-4 flex justify-between items-center max-w-8xl mx-auto">
@@ -48,12 +50,13 @@
                                    </div>
                                 </div>
                             </div>
+                            <%= link_to 'Delete', category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %>
                             <div class="flex-end">
                                 <h4>$<%= category.total_sum %></h4>
                             </div>
                         </div>
                     </li>
-                    </a>
+                    </a> 
                 <% end %>                                 
             </ul>
         </div>
