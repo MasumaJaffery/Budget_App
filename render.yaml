@@ -1,7 +1,7 @@
 databases:
   - name: Bugdet_App
-    databaseName: bugdet_app_2gdn
-    user: bugdet_app_2gdn_user
+    databaseName: db_cp01
+    user: db_cp01_user
 
 services:
   - type: web
